@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -23,7 +24,8 @@ public class SpiderManUtils {
     public static CrashModel parseCrash(Context context, Throwable ex) {
         CrashModel model = new CrashModel();
         try {
-            model.setEx(ex);
+            //model.setEx(ex);
+            Log.e("SpiderMan", Log.getStackTraceString(model.getEx()));
             model.setTime(new Date().getTime());
             if (ex.getCause() != null) {
                 ex = ex.getCause();
